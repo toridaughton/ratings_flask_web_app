@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Sign Up</h1>
+    <form action="/register_user" method="POST">
+        <h3>Please provide your email and a password:</h3>
+        <label>Email:</label>
+        <input type="text" name="register-email" placeholder="email"/>
+        <!-- <hr> -->
+        <label>Password:</label>
+        <input type="password" name="register-pass" placeholder="password"/>
+        <label>Age:</label>
+        <input type="text" name="age" placeholder="age"/>
+        <label>Zipcode:</label>
+        <input type="text" name="zipcode" placeholder="zipcode"/>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

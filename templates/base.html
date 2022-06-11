@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratings</title>
+</head>
+<body>
+    <header>
+        <div class="nav-head">
+            <a href="{{ url_for('index') }}" class="home">Home</a>
+        </div>
+        <nav>
+            <a href="{{ url_for('movie_list') }}" class="movies">Movies</a>
+            <a href="{{ url_for('user_list') }}" class="users">Users</a>
+            <a href="{{ url_for('register_user') }}" class="register">Sign Up</a>
+            <a href="{{ url_for('show_login') }}" class="login">Login</a>
+        </nav>
+    </header>
+    <div class="main-container">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>\
+                    {% endfor %}   
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+            BODY CONTENT OF ALL OTHER HTML FILES
+        {% endblock %}
+        
+    </div>
+</body>
+</html>
