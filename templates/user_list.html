@@ -6,7 +6,11 @@
         {% for user in users %}
         <li>
             <a href="/users/{{ user.user_id }}" class="user">
-                {{ user.email }} {{ user.user_id }}
+                {% if user.email == None %}
+                    Anonymous {{ user.user_id }}
+                {% else %}
+                    {{ user.email }} {{ user.user_id }}
+                {% endif %}
             </a>
         </li>
         {% endfor %}

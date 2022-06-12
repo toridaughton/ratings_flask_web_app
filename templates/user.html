@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content%}
+    {% if user.email == None %}
+        <h1>Anonymous {{ user.user_id }}</h1>
+    {% else %}
+        <h1> {{ user.email }} {{ user.user_id }} </h1>
+    {% endif %}
+    <hr>
+    <h3> Age: {{ user.age }} </h3>
+    <h3> Zipcode: {{ user.zipcode }} </h3>
+    <hr>
+    {% if user.ratings %}
+        <h2>Ratings:</h2>
+        <ul>
+            {% for rating in user.ratings %}
+                <li>
+                    <a href="/movies/{{ rating.movie_id }}"> {{ rating.movie.title }}</a>
+                    was rated {{ rating.score }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

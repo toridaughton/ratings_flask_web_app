@@ -23,7 +23,7 @@ def load_users():
         user = User(user_id=user_id,
                     age=age,
                     zipcode=zipcode)
-
+        
         # We need to add to the session or it won't ever be stored
         db.session.add(user)
 
