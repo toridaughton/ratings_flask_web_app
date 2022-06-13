@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css"/>
     <link rel="stylesheet" href="/static/css/site.css"/>
+    <link rel="stylesheet" href="/static/css/styles.css"/>
     <title>Ratings</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
             <a href="{{ url_for('movie_list') }}" class="movies">Movies</a>
             <a href="{{ url_for('user_list') }}" class="users">Users</a>
             {% if 'user_id' in session %}
-            
+
             <a href="{{ url_for('logout') }}"> Logout </a>
             {% else %}
             <a href="{{ url_for('register_user') }}" class="register">Sign Up</a>
@@ -25,7 +26,7 @@
             {% endif %}
         </nav>
     </header>
-    <div class="main-container">
+    <div class="main-container jumbotron">
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% for category, message in messages %}
@@ -38,5 +39,6 @@
         {% endblock %}
         
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
